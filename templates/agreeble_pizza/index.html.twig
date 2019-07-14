@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AgreeblePizza index{% endblock %}
+
+{% block body %}
+    <h1>AgreeblePizza index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>DateDiff</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agreeble_pizza in agreeble_pizzas %}
+            <tr>
+                <td>{{ agreeble_pizza.id }}</td>
+                <td>{{ agreeble_pizza.name }}</td>
+                <td>{{ agreeble_pizza.dateDiff ? agreeble_pizza.dateDiff.format('%y year(s), %m month(s), %d day(s)') : '' }}</td>
+                <td>
+                    <a href="{{ path('agreeble_pizza_show', {'id': agreeble_pizza.id}) }}">show</a>
+                    <a href="{{ path('agreeble_pizza_edit', {'id': agreeble_pizza.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('agreeble_pizza_new') }}">Create new</a>
+{% endblock %}

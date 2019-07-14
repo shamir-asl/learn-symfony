@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AgreeblePizza{% endblock %}
+
+{% block body %}
+    <h1>Create new AgreeblePizza</h1>
+
+    {{ include('agreeble_pizza/_form.html.twig') }}
+
+    <a href="{{ path('agreeble_pizza_index') }}">back to list</a>
+{% endblock %}
